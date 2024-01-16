@@ -5,4 +5,7 @@
     <color name="red_splash">#e75641</color>
     <color name="green_splash">#2ca664</color>
     <color name="yellow_splash">#fbc901</color>
+
+    <color name="purple">#6750A4</color>
+    <color name="purple_gray">#CAC4D0</color>
 </resources>

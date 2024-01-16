@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OnboardingFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_ob_gabung"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ob_gabung"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ob_gabung"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/view_pager"
+        app:layout_constraintEnd_toEndOf="@id/view_pager"
+        app:layout_constraintTop_toBottomOf="@id/view_pager" />
+
+    <Button
+        android:id="@+id/btn_ob_lewati"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:text="@string/btn_ob_lewati"
+        android:textColor="@color/purple"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/view_pager"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ob_gabung" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="56dp"
+        android:layout_height="24dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_ob_selanjutnya"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@id/btn_ob_lewati"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ob_gabung"
+        app:tabBackground="@drawable/selector_tab_dot"
+        app:tabGravity="center"
+        app:tabIndicator="@null" />
+
+    <Button
+        android:id="@+id/btn_ob_selanjutnya"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:text="@string/btn_ob_selanjutnya"
+        android:textColor="@color/purple"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/view_pager"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ob_gabung" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

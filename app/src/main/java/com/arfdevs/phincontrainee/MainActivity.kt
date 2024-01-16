@@ -2,6 +2,8 @@ package com.arfdevs.phincontrainee
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import com.arfdevs.phincontrainee.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,21 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, SplashFragment())
+            .addToBackStack(null)
             .commit()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            supportFragmentManager.beginTransaction().apply {
+                setCustomAnimations(
+                    com.google.android.material.R.anim.abc_fade_in,
+                    androidx.constraintlayout.widget.R.anim.abc_fade_out,
+                    com.google.android.material.R.anim.abc_fade_in,
+                    com.google.android.material.R.anim.abc_fade_out
+                )
+                replace(binding.fragmentContainer.id, OnboardingFragment())
+                commit()
+            }
+        }, 2000L)
+
     }
 }
