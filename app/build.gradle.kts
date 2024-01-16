@@ -53,4 +53,10 @@ dependencies {
     //viewpager
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    //viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.7.0")
+
+    //livedata
+    implementation("androidx.lifecycle:lifecycle-livedata:2.7.0")
 }
