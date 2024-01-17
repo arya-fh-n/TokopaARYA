@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             supportFragmentManager.beginTransaction()
-                .replace(binding.fragmentContainer.id, LoginFragment())
+                .replace(binding.fragmentContainer.id, RegisterFragment())
                 .commit()
         }, 3000L)
     }

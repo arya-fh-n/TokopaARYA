@@ -5,6 +5,7 @@
     <color name="red_splash">#e75641</color>
     <color name="green_splash">#2ca664</color>
     <color name="yellow_splash">#fbc901</color>
-
     <color name="gray_line">#CAC4D0</color>
+    <color name="red_error">#B3261E</color>
+
 </resources>
