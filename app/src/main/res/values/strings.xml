@@ -5,4 +5,19 @@
     <string name="btn_ob_lewati">Lewati</string>
     <string name="btn_ob_selanjutnya">Selanjutnya</string>
     <string name="btn_ob_gabung">Gabung Sekarang</string>
+    <string name="appbar_login">Masuk</string>
+    <string name="appbar_register">Daftar</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Masuk</string>
+    <string name="tv_separator_register">atau daftar dengan</string>
+    <string name="tv_separator_login">atau masuk dengan</string>
+    <string name="btn_register">Daftar</string>
+    <string name="tv_t_n_c_register"><![CDATA[Dengan daftar disini, kamu menyetujui Syarat & Ketentuan serta Kebijakan Privasi TokoPhincon.]]></string>
+    <string name="tv_t_n_c_login"><![CDATA[Dengan masuk disini, kamu menyetujui Syarat & Ketentuan serta Kebijakan Privasi TokoPhincon.]]></string>
+
+    <string name="error_text_email">Email tidak valid</string>
+    <string name="error_text_email_blank">Email tidak boleh kosong</string>
+    <string name="error_text_password">Password tidak valid</string>
+    <string name="error_text_password_blank">Password tidak boleh kosong</string>
 </resources>

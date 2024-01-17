@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, SplashFragment())
-            .addToBackStack(null)
             .commit()
 
         Handler(Looper.getMainLooper()).postDelayed({
@@ -34,5 +33,11 @@ class MainActivity : AppCompatActivity() {
             }
         }, 2000L)
 
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            supportFragmentManager.beginTransaction()
+                .replace(binding.fragmentContainer.id, RegisterFragment())
+                .commit()
+        }, 3000L)
     }
 }
