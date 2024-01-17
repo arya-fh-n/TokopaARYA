@@ -1,26 +1,27 @@
-package com.arfdevs.phincontrainee
+package com.arfdevs.phincontrainee.ui
 
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.arfdevs.phincontrainee.databinding.FragmentRegisterBinding
+import androidx.fragment.app.Fragment
+import com.arfdevs.phincontrainee.R
+import com.arfdevs.phincontrainee.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 
-class RegisterFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private var _binding: FragmentRegisterBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRegisterBinding.inflate(layoutInflater)
+        _binding = FragmentLoginBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -86,7 +87,7 @@ class RegisterFragment : Fragment() {
 
                 override fun afterTextChanged(s: Editable?) {
                     //password pattern matching criteria
-                    //val pattern = Pattern.compile(    val pattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[;,:.!?$%^*()-_+=])[A-Za-z\\d;,:.!?$%^*()-_+=]{8,}$"))
+                    //val pattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[;,:.!?$%^*()-_+=])[A-Za-z\\d;,:.!?$%^*()-_+=]{8,}$"))
 
                     s?.let {
                         tiPassword.apply {
@@ -120,17 +121,17 @@ class RegisterFragment : Fragment() {
 
             })
 
-            btnRegister.setOnClickListener {
+            btnLogin.setOnClickListener {
                 Snackbar.make(
                     view,
-                    "Registered!",
+                    "Logged in!",
                     Snackbar.LENGTH_LONG
                 ).show()
             }
 
-            btnLogin.setOnClickListener {
+            btnRegister.setOnClickListener {
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, LoginFragment())
+                    .replace(R.id.fragment_container, RegisterFragment())
                     .commit()
             }
         }

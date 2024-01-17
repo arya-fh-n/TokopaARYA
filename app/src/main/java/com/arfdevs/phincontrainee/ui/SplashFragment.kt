@@ -1,27 +1,31 @@
-package com.arfdevs.phincontrainee
+package com.arfdevs.phincontrainee.ui
 
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import com.arfdevs.phincontrainee.R
 import com.arfdevs.phincontrainee.databinding.FragmentSplashBinding
+import com.arfdevs.phincontrainee.ui.data.SharedPrefHelper
 
 class SplashFragment : Fragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var sharedPref: SharedPrefHelper
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplashBinding.inflate(layoutInflater)
+        sharedPref = SharedPrefHelper(requireContext())
         return binding.root
     }
 
@@ -40,9 +44,31 @@ class SplashFragment : Fragment() {
 
         //green shape
         animate(binding.ivShapeGreen, TRANSLATION_Y, 0f, -160f)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            val onboardingShown: Boolean = sharedPref.getValue(IS_ONBOARDING_SHOWN, false) as Boolean
+
+            if (onboardingShown) {
+                requireActivity().supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_container, LoginFragment())
+                    commit()
+                }
+            } else {
+                requireActivity().supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_container, OnboardingFragment())
+                    commit()
+                }
+            }
+        }, 2000L)
     }
 
-    private fun animate(view: View, propertyName: String, startVal: Float, endVal: Float, duration: Long = 1500) {
+    private fun animate(
+        view: View,
+        propertyName: String,
+        startVal: Float,
+        endVal: Float,
+        duration: Long = 1500
+    ) {
         view.run {
             when {
                 propertyName.equals(TRANSLATION_X, true) -> {
@@ -89,17 +115,6 @@ class SplashFragment : Fragment() {
         }
     }
 
-//    private fun animate_valueAnim(view: View, propertyName: String, startVal: Float, endVal: Float, duration: Long = 1500) {
-//        val animator = ValueAnimator.ofFloat(startVal, endVal)
-//
-//        animator.duration = duration
-//        val animatedValue = animator.animatedValue as Float
-//
-//        animator.addUpdateListener {
-//            view.alpha = animatedValue
-//        }
-//    }
-
     companion object {
         const val TRANSLATION_X = "translation_x"
         const val TRANSLATION_Y = "translation_y"
@@ -107,5 +122,6 @@ class SplashFragment : Fragment() {
         const val SCALE_Y = "scale_y"
         const val ROTATE_ANIMATION = "rotate_animation"
         const val ALPHA_ANIMATION = "alpha_animation"
+        const val IS_ONBOARDING_SHOWN = "is_onboarding_shown"
     }
 }

@@ -1,12 +1,11 @@
-package com.arfdevs.phincontrainee
+package com.arfdevs.phincontrainee.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.arfdevs.phincontrainee.databinding.FragmentOnboardingBinding
-import com.arfdevs.phincontrainee.databinding.ItemOnboardingImageBinding
+import com.arfdevs.phincontrainee.R
 
 class OnboardingPagerAdapter(private val imageList: List<Int>): RecyclerView.Adapter<OnboardingPagerAdapter.OnboardingViewHolder>() {
     class OnboardingViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

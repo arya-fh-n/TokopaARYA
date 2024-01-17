@@ -1,6 +1,5 @@
-package com.arfdevs.phincontrainee
+package com.arfdevs.phincontrainee.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,6 +12,5 @@ class OnboardingViewModel: ViewModel() {
 
     fun setIndex(index: Int) {
         _index.value = index
-        Log.d("OBVM:", this.index.value.toString())
     }
 }
