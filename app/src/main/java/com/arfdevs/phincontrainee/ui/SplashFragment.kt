@@ -32,6 +32,8 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        animate(binding.ivSplash, TRANSLATION_Y, 0f, -20f)
+
         //yellow shape anim
         animate(binding.ivShapeYellow, ROTATE_ANIMATION, 0f, -26f)
         animate(binding.ivShapeYellow, TRANSLATION_X, 0f, -80f)

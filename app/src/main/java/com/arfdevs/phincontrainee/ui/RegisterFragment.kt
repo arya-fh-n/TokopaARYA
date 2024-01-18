@@ -127,6 +127,9 @@ class RegisterFragment : Fragment() {
                     "Registered!",
                     Snackbar.LENGTH_LONG
                 ).show()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, HostFragment())
+                    .commit()
             }
 
             btnLogin.setOnClickListener {

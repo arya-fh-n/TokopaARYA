@@ -51,12 +51,22 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //viewpager
-    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    //navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     //viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.7.0")
 
     //livedata
     implementation("androidx.lifecycle:lifecycle-livedata:2.7.0")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.13.2")
+
+    //lottie
+    implementation("com.airbnb.android:lottie:6.3.0")
+
 }
