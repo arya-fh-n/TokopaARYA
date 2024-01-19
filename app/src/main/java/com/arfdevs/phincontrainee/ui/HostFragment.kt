@@ -19,7 +19,7 @@ class HostFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHostBinding.inflate(layoutInflater)
         return binding.root
     }

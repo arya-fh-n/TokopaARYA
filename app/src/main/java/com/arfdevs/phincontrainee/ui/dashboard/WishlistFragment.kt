@@ -1,22 +1,21 @@
-package com.arfdevs.phincontrainee.ui
+package com.arfdevs.phincontrainee.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.arfdevs.phincontrainee.R
-import com.arfdevs.phincontrainee.databinding.FragmentTransactionBinding
+import com.arfdevs.phincontrainee.databinding.FragmentWishlistBinding
 
-class TransactionFragment : Fragment() {
+class WishlistFragment : Fragment() {
 
-    private var _binding: FragmentTransactionBinding? = null
+    private var _binding: FragmentWishlistBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentTransactionBinding.inflate(layoutInflater)
+    ): View {
+        _binding = FragmentWishlistBinding.inflate(layoutInflater)
         return binding.root
     }
 }

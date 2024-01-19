@@ -1,4 +1,4 @@
-package com.arfdevs.phincontrainee.ui
+package com.arfdevs.phincontrainee.ui.prelogin
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,9 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.arfdevs.phincontrainee.R
 import com.arfdevs.phincontrainee.databinding.FragmentLoginBinding
-import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment() {
 
@@ -122,17 +122,11 @@ class LoginFragment : Fragment() {
             })
 
             btnLogin.setOnClickListener {
-                Snackbar.make(
-                    view,
-                    "Logged in!",
-                    Snackbar.LENGTH_LONG
-                ).show()
+                view.findNavController().navigate(R.id.action_loginFragment_to_hostFragment)
             }
 
             btnRegister.setOnClickListener {
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, RegisterFragment())
-                    .commit()
+                view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             }
         }
     }

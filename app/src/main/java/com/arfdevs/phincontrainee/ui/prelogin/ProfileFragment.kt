@@ -1,4 +1,4 @@
-package com.arfdevs.phincontrainee.ui
+package com.arfdevs.phincontrainee.ui.prelogin
 
 import android.net.Uri
 import android.os.Bundle
@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.arfdevs.phincontrainee.R
 import com.arfdevs.phincontrainee.databinding.FragmentProfileBinding
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 
 class ProfileFragment : Fragment() {
 
@@ -22,7 +24,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentProfileBinding.inflate(layoutInflater)
 
         return binding.root
@@ -34,6 +36,7 @@ class ProfileFragment : Fragment() {
         binding.apply {
             Glide.with(requireContext())
                 .load(R.drawable.profile_placeholder)
+                .placeholder(R.drawable.profile_placeholder)
                 .centerCrop()
                 .circleCrop()
                 .into(ivUserPhoto)
@@ -41,6 +44,16 @@ class ProfileFragment : Fragment() {
             ivUserPhoto.setOnClickListener {
                 showImagePickDialog()
             }
+
+            btnFinish.setOnClickListener {
+                Snackbar.make(
+                    view,
+                    "Registered!",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                findNavController().navigate(R.id.action_profileFragment_to_hostFragment)
+            }
+
         }
 
 

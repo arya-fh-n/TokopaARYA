@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.arfdevs.phincontrainee.ui.HomeFragment"
+        android:name="com.arfdevs.phincontrainee.ui.dashboard.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_store"
-        android:name="com.arfdevs.phincontrainee.ui.StoreFragment"
+        android:name="com.arfdevs.phincontrainee.ui.dashboard.StoreFragment"
         android:label="fragment_store"
         tools:layout="@layout/fragment_store" />
     <fragment
         android:id="@+id/nav_wishlist"
-        android:name="com.arfdevs.phincontrainee.ui.WishlistFragment"
+        android:name="com.arfdevs.phincontrainee.ui.dashboard.WishlistFragment"
         android:label="fragment_wishlist"
         tools:layout="@layout/fragment_wishlist" />
     <fragment
         android:id="@+id/nav_transaction"
-        android:name="com.arfdevs.phincontrainee.ui.TransactionFragment"
+        android:name="com.arfdevs.phincontrainee.ui.dashboard.TransactionFragment"
         android:label="fragment_transaction"
         tools:layout="@layout/fragment_transaction" />
 

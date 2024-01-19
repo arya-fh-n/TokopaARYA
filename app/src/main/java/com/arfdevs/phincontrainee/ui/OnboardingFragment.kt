@@ -1,16 +1,19 @@
 package com.arfdevs.phincontrainee.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.arfdevs.phincontrainee.R
 import com.arfdevs.phincontrainee.databinding.FragmentOnboardingBinding
 import com.arfdevs.phincontrainee.ui.adapter.OnboardingPagerAdapter
 import com.arfdevs.phincontrainee.ui.data.SharedPrefHelper
+import com.arfdevs.phincontrainee.ui.prelogin.LoginFragment
+import com.arfdevs.phincontrainee.ui.prelogin.RegisterFragment
+import com.arfdevs.phincontrainee.ui.prelogin.SplashFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class OnboardingFragment : Fragment() {
@@ -30,7 +33,7 @@ class OnboardingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOnboardingBinding.inflate(layoutInflater)
 
         sharedPref = SharedPrefHelper(requireContext())
@@ -80,5 +83,12 @@ class OnboardingFragment : Fragment() {
                 .commit()
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.viewPager.unregisterOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+        })
     }
 }

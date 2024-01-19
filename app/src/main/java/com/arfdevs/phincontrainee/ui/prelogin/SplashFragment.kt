@@ -1,4 +1,4 @@
-package com.arfdevs.phincontrainee.ui
+package com.arfdevs.phincontrainee.ui.prelogin
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.arfdevs.phincontrainee.R
 import com.arfdevs.phincontrainee.databinding.FragmentSplashBinding
 import com.arfdevs.phincontrainee.ui.data.SharedPrefHelper
@@ -51,15 +52,9 @@ class SplashFragment : Fragment() {
             val onboardingShown: Boolean = sharedPref.getValue(IS_ONBOARDING_SHOWN, false) as Boolean
 
             if (onboardingShown) {
-                requireActivity().supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragment_container, LoginFragment())
-                    commit()
-                }
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
             } else {
-                requireActivity().supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragment_container, OnboardingFragment())
-                    commit()
-                }
+                findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
             }
         }, 2000L)
     }
@@ -69,7 +64,7 @@ class SplashFragment : Fragment() {
         propertyName: String,
         startVal: Float,
         endVal: Float,
-        duration: Long = 1500
+        duration: Long = 2000
     ) {
         view.run {
             when {
@@ -124,6 +119,7 @@ class SplashFragment : Fragment() {
         const val SCALE_Y = "scale_y"
         const val ROTATE_ANIMATION = "rotate_animation"
         const val ALPHA_ANIMATION = "alpha_animation"
+
         const val IS_ONBOARDING_SHOWN = "is_onboarding_shown"
     }
 }
